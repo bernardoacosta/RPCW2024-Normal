@@ -1,0 +1,113 @@
+11.1- 
+PREFIX : <http://www.example.org/disease-ontology#>
+SELECT (COUNT(DISTINCT ?disease) AS ?NumberOfDiseases)
+WHERE {
+  ?disease a :Disease .
+}
+
+Resposra: 42
+
+11.2-
+
+PREFIX : <http://www.example.org/disease-ontology#>
+SELECT ?disease
+WHERE {
+  ?disease a :Disease ;
+           :hasSymptom :yellowish_skin .
+}
+
+Resposta : 	disease
+1	
+:Alcoholichepatitis
+2	
+:Chroniccholestasis
+3	
+:HepatitisB
+4	
+:HepatitisC
+5	
+:HepatitisD
+6	
+:HepatitisE
+7	
+:Jaundice
+8	
+:hepatitisA
+
+
+
+11.3 nao fiz
+
+
+11.4- 
+
+PREFIX : <http://www.example.org/disease-ontology#>
+SELECT ?name
+WHERE {
+  ?patient a :Patient ;
+           :name ?name .
+}
+ORDER BY ?name
+
+Resposta: 1	
+"Aabhash Aleixo"
+
+2	
+"Aadeep Roberto"
+
+3	
+"Aadilah Chiquita"
+
+4	
+"Aadvik Amora"
+
+5	
+"Aagambir Libano"
+
+etc......
+
+12 -
+
+query base construct :
+PREFIX : <http://www.example.org/disease-ontology#>
+
+CONSTRUCT {
+  ?patient :hasDisease ?disease .
+}
+WHERE {
+  ?patient a :Patient .
+  ?disease a :Disease .
+  ?disease :hasSymptom ?symptom .
+  
+  FILTER NOT EXISTS {
+    ?disease :hasSymptom ?requiredSymptom .
+    FILTER NOT EXISTS {
+      ?patient :exhibitsSymptom ?requiredSymptom .
+    }
+  }
+}
+
+depois o insert é feito com python e gravado numa nova ontologia (apenas por precaucao) chamada med_doenteex2.ttl
+
+13-
+
+PREFIX : <http://www.example.org/disease-ontology#>
+
+SELECT ?disease (COUNT(?patient) AS ?numberOfPatients)
+WHERE {
+  ?patient :hasDisease ?disease .
+}
+GROUP BY ?disease
+ORDER BY ?numberOfPatients
+
+14 - 
+
+PREFIX : <http://www.example.org/disease-ontology#>
+
+SELECT ?symptom (COUNT(?disease) AS ?numberOfDiseases)
+WHERE {
+  ?disease a :Disease ;
+           :hasSymptom ?symptom .
+}
+GROUP BY ?symptom
+ORDER BY ?numberOfDiseases

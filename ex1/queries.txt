@@ -1,0 +1,57 @@
+1-
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT (COUNT(?class) AS ?TotalClasses) WHERE {
+  ?class rdf:type owl:Class .
+}
+
+
+Resposta: 7
+
+2- 
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT (COUNT(?property) AS ?TotalObjectProperties) WHERE {
+  ?property rdf:type owl:ObjectProperty .
+}
+
+Resposta: 9
+
+3- 
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT (COUNT(?individual) AS ?TotalIndividuals) WHERE {
+  ?individual rdf:type owl:NamedIndividual .
+}
+
+Resposta: 17
+
+4- 
+
+PREFIX : <http://rpcw.di.uminho.pt/2024/untitled-ontology-98/>
+
+SELECT ?personName WHERE {
+  ?person :plantaVegetal :Tomates .
+  ?person :nomePessoa ?personName .
+}
+
+Resposta : Carlos
+
+
+5- 
+
+PREFIX : <http://rpcw.di.uminho.pt/2024/untitled-ontology-98/>
+
+SELECT ?employerName WHERE {
+  ?employer :contrataTrab ?worker .
+  ?employer :nomePessoa ?employerName .
+  ?worker a :TrabalhadorTemp .
+}
+
+Resposta : Carlos

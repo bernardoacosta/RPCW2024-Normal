@@ -1,0 +1,367 @@
+@prefix : <http://rpcw.di.uminho.pt/2024/untitled-ontology-98/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://rpcw.di.uminho.pt/2024/untitled-ontology-98/> .
+
+<http://rpcw.di.uminho.pt/2024/untitled-ontology-98> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/creator
+<http://purl.org/dc/elements/1.1/creator> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://rpcw.di.uminho.pt/2024/untitled-ontology-98#contrataTrab
+:contrataTrab rdf:type owl:ObjectProperty ;
+              rdfs:domain [ rdf:type owl:Restriction ;
+                            owl:onProperty :contrataTrab ;
+                            owl:someValuesFrom :Pessoa
+                          ] ;
+              rdfs:range [ rdf:type owl:Restriction ;
+                           owl:onProperty :contrataTrab ;
+                           owl:someValuesFrom :TrabalhadorTemp
+                         ] ;
+              <http://purl.org/dc/elements/1.1/creator> "bernardocosta" .
+
+
+###  http://rpcw.di.uminho.pt/2024/untitled-ontology-98#eFilhoDe
+:eFilhoDe rdf:type owl:ObjectProperty ;
+          owl:inverseOf :temFilho ;
+          rdfs:domain [ rdf:type owl:Restriction ;
+                        owl:onProperty :eFilhoDe ;
+                        owl:someValuesFrom :Pessoa
+                      ] ;
+          rdfs:range [ rdf:type owl:Restriction ;
+                       owl:onProperty :eFilhoDe ;
+                       owl:someValuesFrom :Pessoa
+                     ] ;
+          <http://purl.org/dc/elements/1.1/creator> "bernardocosta" .
+
+
+###  http://rpcw.di.uminho.pt/2024/untitled-ontology-98#plantaFruta
+:plantaFruta rdf:type owl:ObjectProperty ;
+             rdfs:domain [ rdf:type owl:Restriction ;
+                           owl:onProperty :plantaFruta ;
+                           owl:someValuesFrom :Pessoa
+                         ] ;
+             rdfs:range [ rdf:type owl:Restriction ;
+                          owl:onProperty :temTarefa ;
+                          owl:someValuesFrom :Fruta
+                        ] ;
+             <http://purl.org/dc/elements/1.1/creator> "bernardocosta" .
+
+
+###  http://rpcw.di.uminho.pt/2024/untitled-ontology-98#plantaVegetal
+:plantaVegetal rdf:type owl:ObjectProperty ;
+               rdfs:domain [ rdf:type owl:Restriction ;
+                             owl:onProperty :plantaVegetal ;
+                             owl:someValuesFrom :Pessoa
+                           ] ;
+               rdfs:range [ rdf:type owl:Restriction ;
+                            owl:onProperty :plantaVegetal ;
+                            owl:someValuesFrom :Vegetal
+                          ] ;
+               <http://purl.org/dc/elements/1.1/creator> "bernardocosta" .
+
+
+###  http://rpcw.di.uminho.pt/2024/untitled-ontology-98#temAnimal
+:temAnimal rdf:type owl:ObjectProperty ;
+           rdfs:domain [ rdf:type owl:Restriction ;
+                         owl:onProperty :temAnimal ;
+                         owl:someValuesFrom :Pessoa
+                       ] ;
+           rdfs:range [ rdf:type owl:Restriction ;
+                        owl:onProperty :temTarefa ;
+                        owl:someValuesFrom :Animal
+                      ] ;
+           <http://purl.org/dc/elements/1.1/creator> "bernardocosta" .
+
+
+###  http://rpcw.di.uminho.pt/2024/untitled-ontology-98#temFilho
+:temFilho rdf:type owl:ObjectProperty ;
+          rdfs:domain [ rdf:type owl:Restriction ;
+                        owl:onProperty :temFilho ;
+                        owl:someValuesFrom :Pessoa
+                      ] ;
+          rdfs:range [ rdf:type owl:Restriction ;
+                       owl:onProperty :temFilho ;
+                       owl:someValuesFrom :Pessoa
+                     ] ;
+          <http://purl.org/dc/elements/1.1/creator> "bernardocosta" .
+
+
+###  http://rpcw.di.uminho.pt/2024/untitled-ontology-98#temMaquina
+:temMaquina rdf:type owl:ObjectProperty ;
+            rdfs:domain [ rdf:type owl:Restriction ;
+                          owl:onProperty :temMaquina ;
+                          owl:someValuesFrom :Pessoa
+                        ] ;
+            rdfs:range [ rdf:type owl:Restriction ;
+                         owl:onProperty :temMaquina ;
+                         owl:someValuesFrom :Maquina
+                       ] ;
+            <http://purl.org/dc/elements/1.1/creator> "bernardocosta" .
+
+
+###  http://rpcw.di.uminho.pt/2024/untitled-ontology-98#temTarefa
+:temTarefa rdf:type owl:ObjectProperty ;
+           rdfs:domain [ rdf:type owl:Restriction ;
+                         owl:onProperty :temTarefa ;
+                         owl:someValuesFrom :Pessoa
+                       ] ;
+           rdfs:range [ rdf:type owl:Restriction ;
+                        owl:onProperty :temTarefa ;
+                        owl:someValuesFrom :Tarefa
+                      ] ;
+           <http://purl.org/dc/elements/1.1/creator> "bernardocosta" .
+
+
+###  http://rpcw.di.uminho.pt/2024/untitled-ontology-98#trocaProdutoCom
+:trocaProdutoCom rdf:type owl:ObjectProperty ;
+                 rdfs:domain [ rdf:type owl:Restriction ;
+                               owl:onProperty :trocaProdutoCom ;
+                               owl:someValuesFrom :Pessoa
+                             ] ;
+                 rdfs:range [ rdf:type owl:Restriction ;
+                              owl:onProperty :trocaProdutoCom ;
+                              owl:someValuesFrom :Pessoa
+                            ] ;
+                 <http://purl.org/dc/elements/1.1/creator> "bernardocosta" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://rpcw.di.uminho.pt/2024/untitled-ontology-98#nomeAnimal
+:nomeAnimal rdf:type owl:DatatypeProperty ;
+            rdfs:range xsd:string ;
+            <http://purl.org/dc/elements/1.1/creator> "bernardocosta" .
+
+
+###  http://rpcw.di.uminho.pt/2024/untitled-ontology-98#nomeFruta
+:nomeFruta rdf:type owl:DatatypeProperty ;
+           rdfs:range xsd:string ;
+           <http://purl.org/dc/elements/1.1/creator> "bernardocosta" .
+
+
+###  http://rpcw.di.uminho.pt/2024/untitled-ontology-98#nomeMaquina
+:nomeMaquina rdf:type owl:DatatypeProperty ;
+             rdfs:range xsd:string ;
+             <http://purl.org/dc/elements/1.1/creator> "bernardocosta" .
+
+
+###  http://rpcw.di.uminho.pt/2024/untitled-ontology-98#nomePessoa
+:nomePessoa rdf:type owl:DatatypeProperty ;
+            rdfs:range xsd:string ;
+            <http://purl.org/dc/elements/1.1/creator> "bernardocosta" .
+
+
+###  http://rpcw.di.uminho.pt/2024/untitled-ontology-98#nomeTarefa
+:nomeTarefa rdf:type owl:DatatypeProperty ;
+            rdfs:range xsd:string ;
+            <http://purl.org/dc/elements/1.1/creator> "bernardocosta" .
+
+
+###  http://rpcw.di.uminho.pt/2024/untitled-ontology-98#nomeVegetal
+:nomeVegetal rdf:type owl:DatatypeProperty ;
+             rdfs:range xsd:string ;
+             <http://purl.org/dc/elements/1.1/creator> "bernardocosta" .
+
+
+###  http://rpcw.di.uminho.pt/2024/untitled-ontology-98#salarioPorHora
+:salarioPorHora rdf:type owl:DatatypeProperty ;
+                rdfs:range xsd:int ;
+                <http://purl.org/dc/elements/1.1/creator> "bernardocosta" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://rpcw.di.uminho.pt/2024/untitled-ontology-98#Animal
+:Animal rdf:type owl:Class ;
+        <http://purl.org/dc/elements/1.1/creator> "bernardocosta" .
+
+
+###  http://rpcw.di.uminho.pt/2024/untitled-ontology-98#Fruta
+:Fruta rdf:type owl:Class ;
+       <http://purl.org/dc/elements/1.1/creator> "bernardocosta" .
+
+
+###  http://rpcw.di.uminho.pt/2024/untitled-ontology-98#Maquina
+:Maquina rdf:type owl:Class ;
+         <http://purl.org/dc/elements/1.1/creator> "bernardocosta" .
+
+
+###  http://rpcw.di.uminho.pt/2024/untitled-ontology-98#Pessoa
+:Pessoa rdf:type owl:Class .
+
+
+###  http://rpcw.di.uminho.pt/2024/untitled-ontology-98#Tarefa
+:Tarefa rdf:type owl:Class ;
+        <http://purl.org/dc/elements/1.1/creator> "bernardocosta" .
+
+
+###  http://rpcw.di.uminho.pt/2024/untitled-ontology-98#TrabalhadorTemp
+:TrabalhadorTemp rdf:type owl:Class ;
+                 rdfs:subClassOf :Pessoa .
+
+
+###  http://rpcw.di.uminho.pt/2024/untitled-ontology-98#Vegetal
+:Vegetal rdf:type owl:Class ;
+         <http://purl.org/dc/elements/1.1/creator> "bernardocosta" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://rpcw.di.uminho.pt/2024/untitled-ontology-98#AjudaColheita
+:AjudaColheita rdf:type owl:NamedIndividual ,
+                        :Tarefa ;
+               <http://purl.org/dc/elements/1.1/creator> "bernardocosta" .
+
+
+###  http://rpcw.di.uminho.pt/2024/untitled-ontology-98#Alfaces
+:Alfaces rdf:type owl:NamedIndividual ,
+                  :Vegetal ;
+         :nomeFruta "Alface" ;
+         <http://purl.org/dc/elements/1.1/creator> "bernardocosta" .
+
+
+###  http://rpcw.di.uminho.pt/2024/untitled-ontology-98#Ana
+:Ana rdf:type owl:NamedIndividual ,
+              :Pessoa ;
+     :eFilhoDe :Joao ,
+               :Maria ;
+     :temTarefa :Geleia ;
+     :nomePessoa "Ana" ;
+     <http://purl.org/dc/elements/1.1/creator> "bernardocosta" .
+
+
+###  http://rpcw.di.uminho.pt/2024/untitled-ontology-98#Bananas
+:Bananas rdf:type owl:NamedIndividual ,
+                  :Fruta ;
+         :nomeFruta "Banana" ;
+         <http://purl.org/dc/elements/1.1/creator> "bernardocosta" .
+
+
+###  http://rpcw.di.uminho.pt/2024/untitled-ontology-98#Carlos
+:Carlos rdf:type owl:NamedIndividual ,
+                 :Pessoa ;
+        :contrataTrab :IndividuoTemporario ;
+        :plantaVegetal :Alfaces ,
+                       :Cenouras ,
+                       :Tomates ;
+        :temAnimal :Rex ;
+        :temMaquina :Trator ;
+        :nomePessoa "Carlos" ;
+        <http://purl.org/dc/elements/1.1/creator> "bernardocosta" .
+
+
+###  http://rpcw.di.uminho.pt/2024/untitled-ontology-98#Cenouras
+:Cenouras rdf:type owl:NamedIndividual ,
+                   :Vegetal ;
+          :nomeFruta "Cenoura" ;
+          <http://purl.org/dc/elements/1.1/creator> "bernardocosta" .
+
+
+###  http://rpcw.di.uminho.pt/2024/untitled-ontology-98#Geleia
+:Geleia rdf:type owl:NamedIndividual ,
+                 :Tarefa ;
+        <http://purl.org/dc/elements/1.1/creator> "bernardocosta" .
+
+
+###  http://rpcw.di.uminho.pt/2024/untitled-ontology-98#IndividuoTemporario
+:IndividuoTemporario rdf:type owl:NamedIndividual ,
+                              :TrabalhadorTemp ;
+                     :salarioPorHora "5"^^xsd:int ;
+                     <http://purl.org/dc/elements/1.1/creator> "bernardocosta" .
+
+
+###  http://rpcw.di.uminho.pt/2024/untitled-ontology-98#Joao
+:Joao rdf:type owl:NamedIndividual ,
+               :Pessoa ;
+      :plantaFruta :Bananas ,
+                   :Laranjas ,
+                   :Macas ;
+      :temFilho :Ana ,
+                :Pedro ;
+      :temTarefa :TratarAnimais ;
+      :trocaProdutoCom :Carlos ;
+      :nomePessoa "Joao" .
+
+
+###  http://rpcw.di.uminho.pt/2024/untitled-ontology-98#Laranjas
+:Laranjas rdf:type owl:NamedIndividual ,
+                   :Fruta ;
+          :nomeFruta "Laranja" ;
+          <http://purl.org/dc/elements/1.1/creator> "bernardocosta" .
+
+
+###  http://rpcw.di.uminho.pt/2024/untitled-ontology-98#Macas
+:Macas rdf:type owl:NamedIndividual ,
+                :Fruta ;
+       :nomeFruta "Maca" ;
+       <http://purl.org/dc/elements/1.1/creator> "bernardocosta" .
+
+
+###  http://rpcw.di.uminho.pt/2024/untitled-ontology-98#Maria
+:Maria rdf:type owl:NamedIndividual ,
+                :Pessoa ;
+       :temFilho :Ana ,
+                 :Pedro ;
+       :temTarefa :AjudaColheita ,
+                  :Geleia ;
+       :nomePessoa "Maria" ;
+       <http://purl.org/dc/elements/1.1/creator> "bernardocosta" .
+
+
+###  http://rpcw.di.uminho.pt/2024/untitled-ontology-98#Pedro
+:Pedro rdf:type owl:NamedIndividual ,
+                :Pessoa ;
+       :eFilhoDe :Joao ,
+                 :Maria ;
+       :temTarefa :TratarAnimais ;
+       :nomePessoa "Pedro" ;
+       <http://purl.org/dc/elements/1.1/creator> "bernardocosta" .
+
+
+###  http://rpcw.di.uminho.pt/2024/untitled-ontology-98#Rex
+:Rex rdf:type owl:NamedIndividual ,
+              :Animal ;
+     :nomeAnimal "Rex" ;
+     <http://purl.org/dc/elements/1.1/creator> "bernardocosta" .
+
+
+###  http://rpcw.di.uminho.pt/2024/untitled-ontology-98#Tomates
+:Tomates rdf:type owl:NamedIndividual ,
+                  :Vegetal ;
+         :nomeFruta "Tomate" ;
+         <http://purl.org/dc/elements/1.1/creator> "bernardocosta" .
+
+
+###  http://rpcw.di.uminho.pt/2024/untitled-ontology-98#TratarAnimais
+:TratarAnimais rdf:type owl:NamedIndividual ,
+                        :Tarefa ;
+               <http://purl.org/dc/elements/1.1/creator> "bernardocosta" .
+
+
+###  http://rpcw.di.uminho.pt/2024/untitled-ontology-98#Trator
+:Trator rdf:type owl:NamedIndividual ,
+                 :Maquina ;
+        :nomeMaquina "TratorLavrar" ;
+        <http://purl.org/dc/elements/1.1/creator> "bernardocosta" .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
